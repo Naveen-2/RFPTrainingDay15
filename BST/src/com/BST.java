@@ -44,4 +44,24 @@ public class BST<K extends Comparable<K>> {
         return current;
     }
 
+    /**
+     *
+     * getSize - method to find the number of nodes in tree
+     *
+     * @return number of elements in the tree
+     */
+    public int getSize(){
+        return this.getSizeRecursively(root);
+    }
+
+    /**
+     * getSizeRecursively - method to calculate size of tree recursively
+     * @param current - current node
+     * @return count of elements
+     */
+    private int getSizeRecursively(MyBinaryNode<K> current) {
+        return current == null ? 0 : 1 + this.getSizeRecursively(current.left)
+                                       + this.getSizeRecursively(current.right);
+    }
+
 }
