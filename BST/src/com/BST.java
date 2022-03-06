@@ -64,4 +64,37 @@ public class BST<K extends Comparable<K>> {
                                        + this.getSizeRecursively(current.right);
     }
 
+    /**
+     * search - method to find an element with given key
+     * @param key - value to be found in the tree
+     */
+    public void search(K key){
+        MyBinaryNode<K> found = this.searchRecursively(root, key);
+        if(found == null || found.key != key)
+            System.out.println("Entered element is not present in the tree.");
+    }
+
+    /**
+     *
+     * searchRecursively - method to find the element in tree
+     *
+     * @param current - current node that is matching
+     * @param key - value to be found
+     * @return current node
+     */
+    private MyBinaryNode<K> searchRecursively(MyBinaryNode<K> current, K key){
+        if(current != null) {
+            int compareResult = key.compareTo(current.key);
+            if(compareResult == 0) {
+                System.out.println(key + " found in the tree.");
+            }
+            if(compareResult < 0){
+                searchRecursively(current.left, key);
+            } else {
+                searchRecursively(current.right, key);
+            }
+        }
+        return current;
+    }
+
 }

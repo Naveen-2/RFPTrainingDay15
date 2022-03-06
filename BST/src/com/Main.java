@@ -32,5 +32,7 @@ public class Main {
 
         System.out.println("Size of tree is " + binarySearchTree.getSize() + ".");
 
+        binarySearchTree.search(2);
+
     }
 }
